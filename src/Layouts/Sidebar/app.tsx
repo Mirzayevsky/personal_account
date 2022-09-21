@@ -1,27 +1,24 @@
 import React,{useState} from "react";
-import { Link} from "react-router-dom";
 import {Layout} from 'antd';
-import {ListAltOutlined,HomeMaxOutlined } from "@mui/icons-material";
 import {SidebarItems} from "../../Constants/sidebarItems";
-import {Container,LinkName,LinkWrapper,Icon} from "./style";
+import {Container,LinkName,LinkWrapper,IconWrapper,Logo} from "./style";
 
-const items = [
-  {label:"Home",key:"/",icon:<HomeMaxOutlined />},
-  {label:"Contacts",key:"/contacts",icon:<ListAltOutlined/>},
-  {label:"Signout",key:"signout",icon:<ListAltOutlined/>,danger:true}
-];
-
-const Sidebar = () => {
+const Sidebar:React.FC = () => {
 const {Sider} = Layout;
-const [collapsed, setCollapsed] = useState(false);
+const [collapsed, setCollapsed] = useState<boolean>(false);
 
     return (
         <Sider collapsible collapsed={collapsed} onCollapse={value => setCollapsed(value)}>
-            <div className="logo"> Personal</div>
+            <Logo collapsed={collapsed}> 
+                <div className="logo">Personal account</div>
+                <div className="mini-logo">Pesonal <br/> accaunt</div>
+            </Logo>
             <Container>
-                {SidebarItems.map(({id,name,link,icon})=>(
+                {SidebarItems.map(({id,name,link,Icon})=> (
                     <LinkWrapper key={id} to={link} collapsed={collapsed}>
-                        <Icon>{icon}</Icon>
+                       <IconWrapper>
+                         <Icon/>
+                       </IconWrapper>
                         <LinkName collapsed={collapsed}>{name}</LinkName>
                     </LinkWrapper>
                 ))}

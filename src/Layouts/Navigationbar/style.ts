@@ -1,23 +1,19 @@
 import styled from "styled-components"
 
 export const Navigationbar = styled.div`
-width: 100%;
+width: 90%;
+height: 100%;
+margin: auto;
 display: flex;
 align-items: center;
 justify-content: space-between;
  .search-menu{
-  width: 260px;
+  width: 320px;
+  padding: 10px;
  }
 
 `;
-export const BellIcon = styled.div`
-height: 34px;
-width:fit-content;
-svg{
-height: 100%;
-width: 100%;
-}
-`;
+
 export const AdminWrap = styled.div`
 height: 38px;
 width: 38px;
@@ -38,11 +34,13 @@ z-index: 9;
 background: #f0f2f5;
 `;
 export const Input = styled.input`
-height: 34px;
-width: 260px;
+height: 37px;
+width: 320px;
 border-radius: 5px;
 border: 2px solid lightgray;
 outline: none;
+margin-left: 50px;
+
 `;
 export const Button = styled.div`
 width: 30px;
