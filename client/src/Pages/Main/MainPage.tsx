@@ -9,8 +9,6 @@ import { MainPageWrapper } from './styles';
 import Login from '../Login';
 import Users from '../Users';
 
-
-
 const MainPage:React.FC = () => {
 const { Content} = Layout;
 
