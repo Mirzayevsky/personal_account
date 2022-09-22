@@ -1,3 +1,25 @@
 {
-  "user":[]
+  "users":[
+    {
+      "id":1,
+      "name":"Robert Downy",
+      "login":"mirzayevsky@gmail.com",
+      "password":"@#Ffn92SASD0Vd_Re32/5dq3"
+    }
+  ],
+  "contacts":[
+    {
+      "id":1,
+      "name":"Robert Downy",
+      "phoneNumber":"+99894324423",
+      "address":"USA,Washinton,Backer street 5th"
+    },
+    {
+      "id":2,
+      "name":"Luca Enner",
+      "phoneNumber":"+99894345345",
+      "address":"USA, Newyork,newYork street 5th"
+    }
+
+  ]
 }
