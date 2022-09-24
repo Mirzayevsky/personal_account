@@ -1,11 +1,13 @@
 import React from 'react'
-import MainTable from 'src/components/Table/index';
+import MainTable from 'src/components/Table';
+import {ContactWrapper, Title} from "./styles";
 const Contacts = () => {
    
     return (
-        <div>
+        <ContactWrapper>
+            <Title>Contacts</Title>
             <MainTable/>
-        </div>
+        </ContactWrapper>
     );
 };
 

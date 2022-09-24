@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import {Layout} from 'antd';
 import {SidebarItems} from "../../constants/sidebarItems";
-import {Container,LinkName,LinkWrapper,IconWrapper,Logo} from "./style";
+import {Container,LinkName,LinkWrapper,IconWrapper} from "./style";
 
 const Sidebar:React.FC = () => {
 const {Sider} = Layout;
