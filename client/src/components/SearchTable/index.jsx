@@ -13,6 +13,8 @@ const SearchTable = ({found}) => {
     const [edit, setEdit] = useState(null);
     const [popUp, setPopUp] = useState({cancel: false})
     const {confirm} = Modal;
+    // const filterData = getData.filter((data:DataType) => data.productName.toLowerCase().includes(searchWord.toLowerCase()) || data.amount === Number(searchWord)).map((value:Item)=>({...value,status:"pending"}))
+
 
     const deleteUser = (id) => {
         confirm({

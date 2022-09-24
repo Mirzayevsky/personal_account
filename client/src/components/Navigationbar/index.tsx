@@ -3,7 +3,6 @@ import { ReactComponent as ExitSvg } from "../../Assets/main/exit.svg";
 import {Layout, Space,Input } from 'antd';
 import {AdminWrap,  Navigationbar,Logo} from "./style";
 import AdminImg from "../../assets/navbar/user.png"
-import { AudioOutlined } from '@ant-design/icons';
 // import SearchTable from "../../Components/SearchTable";
 
 const Navbar:React.FC = () => {

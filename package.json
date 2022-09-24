@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@types/redux-logger": "^3.0.9",
+    "react-redux": "^8.0.2",
+    "react-toastify": "^9.0.8",
+    "redux-logger": "^3.0.6",
+    "redux-promise-middleware": "^6.1.2"
+  }
+}
