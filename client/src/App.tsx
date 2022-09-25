@@ -6,8 +6,8 @@ import 'antd/dist/antd.css';
 import Sidebar from "./components/Sidebar/app";
 import Navbar from "./components/Navigationbar";
 import {Route, Routes} from "react-router-dom";
-import Contacts from "./pages/Contacts";
-import Login from "./pages/Login";
+import Contacts from "./pages/contactPage";
+import Login from "./pages/loginPage";
 
 export default function App() {
     const { Content} = Layout;

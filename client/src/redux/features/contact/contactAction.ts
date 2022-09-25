@@ -1,11 +1,11 @@
 import axios from 'axios';
-import { Icontacts, IAttributes, IEditCascadeTools } from '../../../interfaces/interface';
+import { Icontacts} from '../../../interfaces/interface';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { BASE_URL } from '../../../constants/api';
 
 // get all contacts
-export const getAllContacts = createAsyncThunk(
-  'get-all-contacts-tools',
+export const getAllContact = createAsyncThunk(
+  'get-all-contact',
   async (_, thunkAPI) => {
     try {
       const response = await axios.get<Icontacts>(`${BASE_URL}/contacts`, {
@@ -25,8 +25,8 @@ export const getAllContacts = createAsyncThunk(
 
 // create contact
 export const createContact = createAsyncThunk(
-  'create-contacs-tools',
-  async (formData:IAttributes, thunkAPI) => {
+  'create-contact',
+  async (formData:Icontacts, thunkAPI) => {
     try {
       const response = await axios.post<Icontacts>(`${BASE_URL}/contacts`, formData, {
         withCredentials: true,
@@ -46,10 +46,10 @@ export const createContact = createAsyncThunk(
 
 // get single contact
 export const getSingleContact = createAsyncThunk(
-  'get-single-contact-tools',
+  'get-single-contact',
   async (id:string | undefined, thunkAPI) => {
     try {
-      const response = await axios.get<Icontacts>(`${BASE_URL}/contact/${id}`, {
+      const response = await axios.get<Icontacts>(`${BASE_URL}/contacts/${id}`, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -68,9 +68,9 @@ export const getSingleContact = createAsyncThunk(
 // edit contact
 export const editContact = createAsyncThunk(
   'edit-contact',
-  async (formData:IEditCascadeTools, thunkAPI) => {
+  async (formData:Icontacts, thunkAPI) => {
     try {
-      const response = await axios.put<IEditCascadeTools>(`${BASE_URL}/contact/${formData.id}`, formData, {
+      const response = await axios.put<Icontacts>(`${BASE_URL}/contacts/${formData.id}`, formData, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -88,10 +88,10 @@ export const editContact = createAsyncThunk(
 
 // delete contact
 export const deleteContact = createAsyncThunk(
-  'delete-contact-tools',
+  'delete-contact',
   async (id:string, thunkAPI) => {
     try {
-      const response = await axios.delete<Icontacts>(`${BASE_URL}/contact/${id}`, {
+      const response = await axios.delete<Icontacts>(`${BASE_URL}/contacts/${id}`, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -112,7 +112,7 @@ export const editPartOfContact = createAsyncThunk(
   'edit-part-of-contact',
   async (id:string, thunkAPI) => {
     try {
-      const response = await axios.put<Icontacts>(`${BASE_URL}/contact/${id}`, {
+      const response = await axios.put<Icontacts>(`${BASE_URL}/contacts/${id}`, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',

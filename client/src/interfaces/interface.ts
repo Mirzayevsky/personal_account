@@ -7,11 +7,16 @@ export interface IsidebarItems {
 }
 
 export interface Icontacts {
- id:number,
- name:string,
- phoneNumber:string,
- address:string
+    id:string,
+    name:string,
+    phoneNumber:string,
+    address:string
 }
-expect
+export interface Idata {
+    id:string,
+    name:string,
+    phoneNumber:string,
+    address:string
+}
 
 
