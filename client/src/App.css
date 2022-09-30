@@ -74,3 +74,11 @@ a{
     border-color: #5a5c5c !important;
     background: #424141 !important;
 }
+.ant-form-item-control-input-content {
+    flex: auto;
+    max-width: 100%;
+    width: 360px !important;
+}
+#basic{
+}
+

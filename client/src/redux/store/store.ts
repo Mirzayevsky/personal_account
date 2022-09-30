@@ -1,11 +1,13 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 //reducers
-import cascadeToolsSlice from '../features/contact/contactSlice';
+import ContactSlice from '../features/contact/contactSlice';
+import UserSlice from '../features/user/userSlice';
 
-
+ 
 // root reducer here
 const RootReducer = combineReducers({
-  cascadeToolsSlice,
+  ContactSlice,
+  UserSlice
 });
 
 

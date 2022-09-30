@@ -4,21 +4,26 @@ import {Modal,} from 'antd';
 import {Container, Table, TableWrapper, TBody, TD, TH, THead, TRow,Button,EditButton} from "./style";
 import Loader from "../Loader";
 import { ReactComponent as DeleteSvg } from '../../assets/main/delete.svg';
+import { getAllContact } from 'src/redux/features/contact/contactAction';
+import ContactSlice from "../../redux/features/contact/contactSlice";
+import { RootState } from 'src/redux/store/store';
 import EditImg from "../../assets/main/edit.png"
-import { defaultStateType } from 'src/redux/modules/GetProduct/getProduct.Reducer';
-import { getProductAction } from 'src/redux/modules/GetProduct/getProdcuct.Action';
+import {IContactsTools} from "../../interfaces/Icontacts";
+import {IDataType} from "../../interfaces/Icontacts";
+
 const MainTable = () => {
     const [edit, setEdit] = useState(null);
     const [popUp, setPopUp] = useState({cancel: false})
-    const data = useSelector((state:defaultStateType) => state.contact);
+    const data = useSelector((state:RootState) => state.RootReducer.ContactSlice);
     console.log(data);
     
     const {confirm} = Modal;
     const dispatch = useDispatch<any>()
-    useEffect(()=>{
-    dispatch(getProductAction())
 
+    useEffect(()=>{
+    dispatch(getAllContact())
     },[])
+
     // const deleteUser = (id) => {
     //
     // }
@@ -58,29 +63,7 @@ const MainTable = () => {
                         </TRow>
                     </THead>
                     <TBody>
-                        {data.map((item: { id: React.Key | null | undefined; name: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; phoneNumber: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; address: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; },Index: number) => (
-                            <TRow key={item.id}>
-                                <TD>{Index + 1}</TD>
-                                <TD>{item.name}</TD>
-                                <TD>{item.phoneNumber}</TD>
-                                <TD>{item.address}</TD>
-                                <TD>
-                                {/*    onClick={() => {*/}
-                                {/*    setPopUp({cancel: true});*/}
-                                {/*    EditFormData(item)*/}
-                                {/*}}*/}
-                                    <EditButton >
-                                         <img src={EditImg} alt={"edit"}/>
-                                    </EditButton>
-                                </TD>
-                                <TD>
-                                    {/*onClick={() => deleteUser(item.id)}*/}
-                                    <Button >
-                                         <DeleteSvg/>
-                                    </Button>
-                                </TD>
-                            </TRow>
-                        ))}
+
                     </TBody>
                 </Table>
             </TableWrapper>

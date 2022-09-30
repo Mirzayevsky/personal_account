@@ -6,12 +6,7 @@ export interface IsidebarItems {
  Icon:any
 }
 
-export interface Icontacts {
- id:number,
- name:string,
- phoneNumber:string,
- address:string
-}
-expect
+
+
 
 

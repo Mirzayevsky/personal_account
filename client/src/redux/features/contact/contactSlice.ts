@@ -1,27 +1,26 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Icontacts } from '../../../interfaces/interface'; //model
 import { IContactState } from './contactInterface';
 import { toast } from 'react-toastify';
 import { message } from 'antd';
-
+import {IContactsTools} from "../../../interfaces/Icontacts"; //action
 import {
-  getAllContacts,
+  getAllContact,
   createContact,
   getSingleContact,
   editContact,
   deleteContact,
   editPartOfContact
-} from './contactAction'; //action
+} from './contactAction';
 
 //initial state of reducer
 const initialState: IContactState = {
   getAllContactSuccess: false,
   getAllContactLoading: false,
   getAllContactError: false,
-  allContacts: {},
+  allContacts:{},
 
   createContactSuccess: false,
-  createContactLoading: false,
+  createContactLoading: false, 
   createContactError: false,
   createdContact: {},
 
@@ -51,7 +50,7 @@ const ContactSlice = createSlice({
       state.createContactSuccess = false;
       state.createContactLoading = false;
       state.createContactError = false;
-      state.createdContact = {};
+      state.createdContact = { };
 
       state.editContactSuccess = false;
       state.editContactLoading = false;
@@ -72,23 +71,23 @@ const ContactSlice = createSlice({
     },
   },
   extraReducers: {
-    // get all Cascade-Tools
-    [getAllContacts.fulfilled.type]: (state, action: PayloadAction<Icontacts>) => {
+    // get all contacts
+    [getAllContact.fulfilled.type]: (state, action: PayloadAction<IContactsTools>) => {
       state.getAllContactLoading = false;
       state.getAllContactError = false;
       state.allContacts = action.payload;
       state.getAllContactSuccess = true;
     },
-    [getAllContacts.pending.type]: (state) => {
+    [getAllContact.pending.type]: (state) => {
       state.getAllContactLoading = true;
     },
-    [getAllContacts.rejected.type]: (state) => {
+    [getAllContact.rejected.type]: (state) => {
       state.getAllContactLoading = false;
       state.getAllContactError = true;
       toast.error('Не удалось получить каскадные инструменты!');
     },
     // create Cascade-Tools
-    [createContact.fulfilled.type]: (state, action: PayloadAction<Icontacts>) => {
+    [createContact.fulfilled.type]: (state, action: PayloadAction<IContactsTools>) => {
       state.createContactLoading = false;
       state.createContactError = false;
       state.createContactSuccess = true;
@@ -105,7 +104,7 @@ const ContactSlice = createSlice({
       action.payload === 409 ? toast.error('Каскадные инструменты с таким названием уже существуют!') : toast.error('Не удалось создать каскадные инструменты!');
     },
     // get single Cascade-Tools
-    [getSingleContact.fulfilled.type]: (state, action: PayloadAction<Icontacts>) => {
+    [getSingleContact.fulfilled.type]: (state, action: PayloadAction<IContactsTools>) => {
       state.getSingleContactLoading = false;
       state.getSingleContactError = false;
       state.singleContact = action.payload;

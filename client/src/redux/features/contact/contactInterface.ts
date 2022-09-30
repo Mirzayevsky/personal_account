@@ -1,21 +1,21 @@
-import { Icontacts } from 'src/interfaces/interface';
+import {IContactsTools} from "../../../interfaces/Icontacts";
 
 //Contact State
 export interface IContactState {
   getAllContactSuccess: boolean,
   getAllContactError: boolean,
   getAllContactLoading: boolean,
-  allContacts: Icontacts,
+  allContacts: IContactsTools,
 
   createContactSuccess: boolean,
   createContactError: boolean,
   createContactLoading: boolean,
-  createdContact: Icontacts,
+  createdContact: IContactsTools,
 
   getSingleContactSuccess: boolean,
   getSingleContactError: boolean,
   getSingleContactLoading: boolean,
-  singleContact: Icontacts,
+  singleContact: IContactsTools,
 
   editContactSuccess: boolean,
   editContactError: boolean,
