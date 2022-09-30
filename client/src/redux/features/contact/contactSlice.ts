@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IContactState } from './contactInterface';
+import { IContactToolsState } from './contactInterface';
 import { toast } from 'react-toastify';
 import { message } from 'antd';
 import {IContactsTools} from "../../../interfaces/Icontacts"; //action
@@ -13,7 +13,7 @@ import {
 } from './contactAction';
 
 //initial state of reducer
-const initialState: IContactState = {
+const initialState: IContactToolsState = {
   getAllContactSuccess: false,
   getAllContactLoading: false,
   getAllContactError: false,

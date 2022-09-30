@@ -8,8 +8,7 @@ import { getAllContact } from 'src/redux/features/contact/contactAction';
 import ContactSlice from "../../redux/features/contact/contactSlice";
 import { RootState } from 'src/redux/store/store';
 import EditImg from "../../assets/main/edit.png"
-import {IContactsTools} from "../../interfaces/Icontacts";
-import {IDataType} from "../../interfaces/Icontacts";
+import { IContactToolsState } from 'src/redux/features/contact/contactInterface';
 
 const MainTable = () => {
     const [edit, setEdit] = useState(null);
@@ -57,12 +56,13 @@ const MainTable = () => {
                             <TH>#</TH>
                             <TH>Name</TH>
                             <TH>PhoneNumber</TH>
-                            <TH>Address</TH>
+                             <TH>Address</TH>
                             <TH>Edit</TH>
                             <TH>Delete</TH>
                         </TRow>
                     </THead>
                     <TBody>
+                    
 
                     </TBody>
                 </Table>

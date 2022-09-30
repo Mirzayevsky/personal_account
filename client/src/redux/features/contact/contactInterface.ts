@@ -1,7 +1,7 @@
 import {IContactsTools} from "../../../interfaces/Icontacts";
 
 //Contact State
-export interface IContactState {
+export interface IContactToolsState {
   getAllContactSuccess: boolean,
   getAllContactError: boolean,
   getAllContactLoading: boolean,

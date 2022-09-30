@@ -1,21 +1,21 @@
-import { Iuser } from 'src/interfaces/interface';
+import { IUserTools } from 'src/interfaces/Iusers';
 
 //User State
 export interface IuserState {
   getAllUserSuccess: boolean,
   getAllUserError: boolean,
   getAllUserLoading: boolean,
-  allUsers: Iuser,
+  allUsers: IUserTools,
 
   createUserSuccess: boolean,
   createUserError: boolean,
   createUserLoading: boolean,
-  createdUser: Iuser,
+  createdUser: IUserTools,
 
   getSingleUserSuccess: boolean,
   getSingleUserError: boolean,
   getSingleUserLoading: boolean,
-  singleUser: Iuser,
+  singleUser:IUserTools,
 
   editUserSuccess: boolean,
   editUserError: boolean,

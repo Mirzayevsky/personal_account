@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Iuser } from '../../../interfaces/interface'; //interfaces
+import { IUserTools } from '../../../interfaces/Iusers'; //interfaces
 import { IuserState } from './userInterface';
 import { toast } from 'react-toastify';
 import { message } from 'antd';
@@ -18,19 +18,16 @@ const initialState: IuserState = {
   getAllUserSuccess: false,
   getAllUserLoading: false,
   getAllUserError: false,
-  // @ts-ignore
   allUsers: {},
 
   createUserSuccess: false,
   createUserLoading: false, 
   createUserError: false,
-  // @ts-ignore
   createdUser: {},
 
   getSingleUserSuccess: false,
   getSingleUserLoading: false,
   getSingleUserError: false,
-  // @ts-ignore
   singleUser: {},
 
   editUserSuccess: false,
@@ -72,13 +69,12 @@ const UserSlice = createSlice({
       state.getSingleUserLoading = false;
       state.getSingleUserError = false;
       state.getSingleUserSuccess = false;
-      // @ts-ignore
       state.singleUser = {};
     },
   },
   extraReducers: {
     // get all Users
-    [getAllUser.fulfilled.type]: (state, action: PayloadAction<Iuser>) => {
+    [getAllUser.fulfilled.type]: (state, action: PayloadAction<IUserTools>) => {
       state.getAllUserLoading = false;
       state.getAllUserError = false;
       state.allUsers = action.payload;
@@ -93,7 +89,7 @@ const UserSlice = createSlice({
       toast.error('Не удалось получить каскадные инструменты!');
     },
     // create Cascade-Tools
-    [createUser.fulfilled.type]: (state, action: PayloadAction<Iuser>) => {
+    [createUser.fulfilled.type]: (state, action: PayloadAction<IUserTools>) => {
       state.createUserLoading = false;
       state.createUserError = false;
       state.createUserSuccess = true;
@@ -110,7 +106,7 @@ const UserSlice = createSlice({
       action.payload === 409 ? toast.error('Каскадные инструменты с таким названием уже существуют!') : toast.error('Не удалось создать каскадные инструменты!');
     },
     // get single Cascade-Tools
-    [getSingleUser.fulfilled.type]: (state, action: PayloadAction<Iuser>) => {
+    [getSingleUser.fulfilled.type]: (state, action: PayloadAction<IUserTools>) => {
       state.getSingleUserLoading = false;
       state.getSingleUserError = false;
       state.singleUser = action.payload;

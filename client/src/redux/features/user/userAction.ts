@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Iuser} from '../../../interfaces/interface';
+import { IUserTools,IAttributes} from '../../../interfaces/Iusers';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { BASE_URL } from '../../../constants/api';
 
@@ -8,7 +8,7 @@ export const getAllUser = createAsyncThunk(
   'get-all-user',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get<Iuser>(`${BASE_URL}/users`, {
+      const response = await axios.get<IUserTools>(`${BASE_URL}/users`, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -26,9 +26,9 @@ export const getAllUser = createAsyncThunk(
 // create user
 export const createUser = createAsyncThunk(
   'create-user',
-  async (formData:Iuser, thunkAPI) => {
+  async (formData:IAttributes, thunkAPI) => {
     try {
-      const response = await axios.post<Iuser>(`${BASE_URL}/users`, formData, {
+      const response = await axios.post<IUserTools>(`${BASE_URL}/users`, formData, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ export const getSingleUser = createAsyncThunk(
   'get-single-user',
   async (id:string | undefined, thunkAPI) => {
     try {
-      const response = await axios.get<Iuser>(`${BASE_URL}/users/${id}`, {
+      const response = await axios.get<IUserTools>(`${BASE_URL}/users/${id}`, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -68,9 +68,9 @@ export const getSingleUser = createAsyncThunk(
 // edit User
 export const editUser = createAsyncThunk(
   'edit-user',
-  async (formData:Iuser, thunkAPI) => {
+  async (formData:IUserTools, thunkAPI) => {
     try {
-      const response = await axios.put<Iuser>(`${BASE_URL}/users/${formData.id}`, formData, {
+      const response = await axios.put<IUserTools>(`${BASE_URL}/users/${formData}`, formData, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ export const deleteUser = createAsyncThunk(
   'delete-user',
   async (id:string, thunkAPI) => {
     try {
-      const response = await axios.delete<Iuser>(`${BASE_URL}/users/${id}`, {
+      const response = await axios.delete<IUserTools>(`${BASE_URL}/users/${id}`, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -112,7 +112,7 @@ export const editPartOfUser = createAsyncThunk(
   'edit-part-of-user',
   async (id:string, thunkAPI) => {
     try {
-      const response = await axios.put<Iuser>(`${BASE_URL}/users/${id}`, {
+      const response = await axios.put<IUserTools>(`${BASE_URL}/users/${id}`, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
