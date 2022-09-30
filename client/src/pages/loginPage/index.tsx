@@ -1,5 +1,5 @@
 import React from 'react';
-import {LoginPageWrapper} from "./styles";
+import {LoginPageWrapper, Title} from "./styles";
 import { Button, Checkbox, Form, Input } from 'antd';
 
 const Login:React.FC = () => {
@@ -12,9 +12,10 @@ const Login:React.FC = () => {
       };
     return (
         <LoginPageWrapper>
+            <Title>Personal Account</Title>
             <Form
       name="basic"
-      labelCol={{ span: 8 }}
+      labelCol={{ span: 5 }}
       wrapperCol={{ span: 16 }}
       initialValues={{ remember: true }}
       onFinish={onFinish}
@@ -42,7 +43,7 @@ const Login:React.FC = () => {
         <Checkbox>Remember me</Checkbox>
       </Form.Item>
 
-      <Form.Item wrapperCol={{ offset: 14, span: 16 }}>
+      <Form.Item wrapperCol={{ offset: 10, span: 16 }}>
         <Button type="primary" htmlType="submit">
           Submit
         </Button>

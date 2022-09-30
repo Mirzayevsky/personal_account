@@ -7,8 +7,9 @@ import { ReactComponent as DeleteSvg } from '../../assets/main/delete.svg';
 import { getAllContact } from 'src/redux/features/contact/contactAction';
 import ContactSlice from "../../redux/features/contact/contactSlice";
 import { RootState } from 'src/redux/store/store';
-import { Icontacts } from 'src/interfaces/interface';
 import EditImg from "../../assets/main/edit.png"
+import {IContactsTools} from "../../interfaces/Icontacts";
+import {IDataType} from "../../interfaces/Icontacts";
 
 const MainTable = () => {
     const [edit, setEdit] = useState(null);
@@ -62,29 +63,7 @@ const MainTable = () => {
                         </TRow>
                     </THead>
                     <TBody>
-                        {[]?.map((item:Icontacts,index:number) => (
-                            <TRow key={item.id}>
-                                <TD>{index + 1}</TD>
-                                <TD>{item.name}</TD>
-                                <TD>{item.phoneNumber}</TD>
-                                <TD>{item.address}</TD>
-                                <TD>
-                                {/*    onClick={() => {*/}
-                                {/*    setPopUp({cancel: true});*/}
-                                {/*    EditFormData(item)*/}
-                                {/*}}*/}
-                                    <EditButton >
-                                         <img src={EditImg} alt={"edit"}/>
-                                    </EditButton>
-                                </TD>
-                                <TD>
-                                    {/*onClick={() => deleteUser(item.id)}*/}
-                                    <Button >
-                                         <DeleteSvg/>
-                                    </Button>
-                                </TD>
-                            </TRow>
-                        ))}
+
                     </TBody>
                 </Table>
             </TableWrapper>

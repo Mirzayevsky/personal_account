@@ -15,7 +15,7 @@ export default function App() {
     return (
         <PageWrapper>
             <Layout style={{ minHeight: '100vh' }}>
-                {/*<Sidebar/>*/}
+                <Sidebar/>
                 <Layout className="site-layout">
                     <Navbar/>
                     <Content className={'content'}>

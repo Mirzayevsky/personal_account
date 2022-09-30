@@ -1,14 +1,14 @@
 import axios from 'axios';
-import {IContactsTools,IAttributes} from "../../../interfaces/Icontacts";
+import { Iuser} from '../../../interfaces/interface';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { BASE_URL } from '../../../constants/api';
 
-// get all contacts
-export const getAllContact = createAsyncThunk(
-  'get-all-contact',
+// get all users
+export const getAllUser = createAsyncThunk(
+  'get-all-user',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get<IContactsTools>(`${BASE_URL}/contacts`, {
+      const response = await axios.get<Iuser>(`${BASE_URL}/users`, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -18,17 +18,17 @@ export const getAllContact = createAsyncThunk(
       return response.data; 
     
     } catch (err) {
-      return thunkAPI.rejectWithValue('Get all contacts Error!')
+      return thunkAPI.rejectWithValue('Get all users Error!')
     }
   }
 ); //not using
 
-// create contact
-export const createContact = createAsyncThunk(
-  'create-contact',
-  async (formData:IAttributes, thunkAPI) => {
+// create user
+export const createUser = createAsyncThunk(
+  'create-user',
+  async (formData:Iuser, thunkAPI) => {
     try {
-      const response = await axios.post<IContactsTools>(`${BASE_URL}/contacts`, formData, {
+      const response = await axios.post<Iuser>(`${BASE_URL}/users`, formData, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -38,18 +38,18 @@ export const createContact = createAsyncThunk(
       return response.data; 
     
     } catch (err) {
-      return thunkAPI.rejectWithValue('Create Contact Error!')
+      return thunkAPI.rejectWithValue('Create User Error!')
     }
   }
 ); //200ok
 
 
-// get single contact
-export const getSingleContact = createAsyncThunk(
-  'get-single-contact',
+// get single user
+export const getSingleUser = createAsyncThunk(
+  'get-single-user',
   async (id:string | undefined, thunkAPI) => {
     try {
-      const response = await axios.get<IContactsTools>(`${BASE_URL}/contacts/${id}`, {
+      const response = await axios.get<Iuser>(`${BASE_URL}/users/${id}`, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -59,18 +59,18 @@ export const getSingleContact = createAsyncThunk(
       return response.data;
     
     } catch (err) {
-      return thunkAPI.rejectWithValue('Get Single Contact Error!')
+      return thunkAPI.rejectWithValue('Get Single User Error!')
     }
   }
 ); //200ok
 
 
-// edit contact
-export const editContact = createAsyncThunk(
-  'edit-contact',
-  async (formData:IContactsTools, thunkAPI) => {
+// edit User
+export const editUser = createAsyncThunk(
+  'edit-user',
+  async (formData:Iuser, thunkAPI) => {
     try {
-      const response = await axios.put<IContactsTools>(`${BASE_URL}/contacts/${formData}`, formData, {
+      const response = await axios.put<Iuser>(`${BASE_URL}/users/${formData.id}`, formData, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -80,18 +80,18 @@ export const editContact = createAsyncThunk(
       return response.data; 
     
     } catch (err) {
-      return thunkAPI.rejectWithValue('Edit Contact Error!')
+      return thunkAPI.rejectWithValue('Edit User Error!')
     }
   }
 ); //not using
 
 
-// delete contact
-export const deleteContact = createAsyncThunk(
-  'delete-contact',
+// delete user
+export const deleteUser = createAsyncThunk(
+  'delete-user',
   async (id:string, thunkAPI) => {
     try {
-      const response = await axios.delete<IContactsTools>(`${BASE_URL}/contacts/${id}`, {
+      const response = await axios.delete<Iuser>(`${BASE_URL}/users/${id}`, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -101,18 +101,18 @@ export const deleteContact = createAsyncThunk(
       return response.data; 
     
     } catch (err) {
-      return thunkAPI.rejectWithValue('Delete Contact Error!')
+      return thunkAPI.rejectWithValue('Delete User Error!')
     }
   }
 ); //200ok
 
 
-// edit part of contact
-export const editPartOfContact = createAsyncThunk(
-  'edit-part-of-contact',
+// edit part of user
+export const editPartOfUser = createAsyncThunk(
+  'edit-part-of-user',
   async (id:string, thunkAPI) => {
     try {
-      const response = await axios.put<IContactsTools>(`${BASE_URL}/contacts/${id}`, {
+      const response = await axios.put<Iuser>(`${BASE_URL}/users/${id}`, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -122,7 +122,7 @@ export const editPartOfContact = createAsyncThunk(
       return response.data; 
     
     } catch (err) {
-      return thunkAPI.rejectWithValue('Edit part of Contact Error!')
+      return thunkAPI.rejectWithValue('Edit part of User Error!')
     }
   }
 ); //not using
